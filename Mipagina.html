@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INVERSIONES SINAI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #e9ecef;
+            color: #343a40;
+        }
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 8px;
+        }
+        h2 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        td {
+            background-color: #ffffff;
+        }
+        button {
+            padding: 8px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #search {
+            margin: 20px 0;
+            text-align: center;
+        }
+        #search input {
+            padding: 8px;
+            width: 200px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+        }
+        #cart {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #cart h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+        #requestForm input {
+            padding: 8px;
+            margin-right: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>INVERSIONES SINAI</h1>
+
+    <div id="search">
+        <input type="text" id="searchInput" placeholder="Buscar productos..." onkeyup="searchProducts()">
+    </div>
+
+    <section id="products">
+        <h2>Productos</h2>
+        <table id="productTable">
+            <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Acciones</th>
+            </tr>
+            <tr>
+                <td>ALISADO TCB</td>
+                <td>$185.00</td>
+                <td><button onclick="addToCart('ALISADO TCB', 185)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>ABANICO DE PARED MILENIUN</td>
+                <td>$2,900.00</td>
+                <td><button onclick="addToCart('ABANICO DE PARED MILENIUN', 2900)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>ABANICO MILENIUN PEQUEÑO</td>
+                <td>$1,400.00</td>
+                <td><button onclick="addToCart('ABANICO MILENIUN PEQUEÑO', 1400)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>ABANICO PEDESTAL MILENIUN</td>
+                <td>$2,900.00</td>
+                <td><button onclick="addToCart('ABANICO PEDESTAL MILENIUN', 2900)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>ABANICO UNIVERSAL DE PARED DE 18</td>
+                <td>$4,200.00</td>
+                <td><button onclick="addToCart('ABANICO UNIVERSAL DE PARED DE 18', 4200)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>ABANICO UNIVERSAL DE PEDESTAL</td>
+                <td>$4,500.00</td>
+                <td><button onclick="addToCart('ABANICO UNIVERSAL DE PEDESTAL', 4500)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>ABANICO Y ESTUFA</td>
+                <td>$3,975.00</td>
+                <td><button onclick="addToCart('ABANICO Y ESTUFA', 3975)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>ACEITE PARA BEBE</td>
+                <td>$110.00</td>
+                <td><button onclick="addToCart('ACEITE PARA BEBE', 110)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>AIRES</td>
+                <td>$5,525.00</td>
+                <td><button onclick="addToCart('AIRES', 5525)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>ALCANFOL</td>
+                <td>$65.00</td>
+                <td><button onclick="addToCart('ALCANFOL', 65)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>ALGODON</td>
+                <td>$30.00</td>
+                <td><button onclick="addToCart('ALGODON', 30)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>ANANICO ESEQUIER</td>
+                <td>$2,650.00</td>
+                <td><button onclick="addToCart('ANANICO ESEQUIER', 2650)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>ARCANSIA CERDITO</td>
+                <td>$60.00</td>
+                <td><button onclick="addToCart('ARCANSIA CERDITO', 60)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>ARMOADA CARICIAS</td>
+                <td>$800.00</td>
+                <td><button onclick="addToCart('ARMOADA CARICIAS', 800)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>ARMOADAS DE COLORES</td>
+                <td>$750.00</td>
+                <td><button onclick="addToCart('ARMOADAS DE COLORES', 750)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>AUDICULARES</td>
+                <td>$150.00</td>
+                <td><button onclick="addToCart('AUDICULARES', 150)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>BAÑERA</td>
+                <td>$2,200.00</td>
+                <td><button onclick="addToCart('BAÑERA', 2200)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>BASELIN PARA BEBE</td>
+                <td>$130.00</td>
+                <td><button onclick="addToCart('BASELIN PARA BEBE', 130)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>BASITO CON TAPA</td>
+                <td>$60.00</td>
+                <td><button onclick="addToCart('BASITO CON TAPA', 60)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>BASO EURO KITCHEN</td>
+                <td>$265.00</td>
+                <td><button onclick="addToCart('BASO EURO KITCHEN', 265)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>BIBERON BEIKU</td>
+                <td>$160.00</td>
+                <td><button onclick="addToCart('BIBERON BEIKU', 160)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>BIBERON GRANDE CON TETERA PEQUEÑA</td>
+                <td>$80.00</td>
+                <td><button onclick="addToCart('BIBERON GRANDE CON TETERA PEQUEÑA', 80)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>BIBERON SOILE</td>
+                <td>$140.00</td>
+                <td><button onclick="addToCart('BIBERON SOILE', 140)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>BOMBIYO RECARGABLE</td>
+                <td>$280.00</td>
+                <td><button onclick="addToCart('BOMBIYO RECARGABLE', 280)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>BOSER</td>
+                <td>$300.00</td>
+                <td><button onclick="addToCart('BOSER', 300)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>BOSINA RECARGABLE MINI SPEAKER</td>
+                <td>$550.00</td>
+                <td><button onclick="addToCart('BOSINA RECARGABLE MINI SPEAKER', 550)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>BRILLANTINA PARA EL PELO</td>
+                <td>$130.00</td>
+                <td><button onclick="addToCart('BRILLANTINA PARA EL PELO', 130)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>CABLE NEGRO ORIGINAL</td>
+                <td>$150.00</td>
+                <td><button onclick="addToCart('CABLE NEGRO ORIGINAL', 150)">Añadir al carrito</button></td>
+            </tr>
+            <tr>
+                <td>CAJA TRANSPARENTE 14 LITROS</td>
+                <td>$365.00</td>
+                <td><button onclick="addToCart('CAJA TRANSPARENTE 14 LITROS', 365)">Añadir al carrito</button></td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="cart">
+        <h3>Carrito</h3>
+        <ul id="cartItems"></ul>
+        <p>Total: <span id="totalPrice">$0.00</span></p>
+        <div id="requestForm">
+            <h4>Enviar Solicitud de Compra</h4>
+            <input type="text" id="customerName" placeholder="Tu Nombre" required>
+            <input type="email" id="customerEmail" placeholder="Tu Correo Electrónico" required>
+            <button onclick="submitRequest()">Enviar Solicitud</button>
+        </div>
+    </section>
+
+    <script>
+        const cart = [];
+        let total = 0;
+
+        function addToCart(productName, price) {
+            cart.push({ name: productName, price: price });
+            total += price;
+            updateCartDisplay();
+            alert(`${productName} ha sido añadido al carrito.`);
+        }
+
+        function removeFromCart(index) {
+            total -= cart[index].price;
+            cart.splice(index, 1);
+            updateCartDisplay();
+            alert(`Producto eliminado del carrito.`);
+        }
+
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cartItems');
+            cartItems.innerHTML = '';
+
+            cart.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+                
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'Eliminar';
+                removeButton.onclick = () => removeFromCart(index);
+                
+                li.appendChild(removeButton);
+                cartItems.appendChild(li);
+            });
+
+            document.getElementById('totalPrice').textContent = `$${total.toFixed(2)}`;
+        }
+
+        function submitRequest() {
+            const name = document.getElementById('customerName').value;
+            const email = document.getElementById('customerEmail').value;
+
+            if (cart.length === 0) {
+                alert("Tu carrito está vacío.");
+                return;
+            }
+
+            alert(`Solicitud enviada.\nNombre: ${name}\nCorreo: ${email}\nTotal: $${total.toFixed(2)}`);
+
+            // Reiniciar el carrito
+            cart.length = 0;
+            total = 0;
+            updateCartDisplay();
+            document.getElementById('customerName').value = '';
+            document.getElementById('customerEmail').value = '';
+        }
+
+        function searchProducts() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const table = document.getElementById('productTable');
+            const rows = table.getElementsByTagName('tr');
+
+            for (let i = 1; i < rows.length; i++) { // Inicia en 1 para omitir encabezados
+                const cells = rows[i].getElementsByTagName('td');
+                let rowContainsText = false;
+
+                for (let j = 0; j < cells.length; j++) {
+                    if (cells[j].textContent.toLowerCase().includes(input)) {
+                        rowContainsText = true;
+                        break;
+                    }
+                }
+                
+                rows[i].style.display = rowContainsText ? '' : 'none';
+            }
+        }
+    </script>
+</body>
+</html>
