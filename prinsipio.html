@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Compra las mejores cartas exclusivas de Dragon Ball para fanáticos y coleccionistas. Diseños únicos, perfectos para regalar.">
+  <meta name="keywords" content="Cartas Dragon Ball, coleccionables, exclusivas, PayPal">
+  <meta name="author" content="Tienda Dragon Ball">
+  <title>Compra Cartas Dragon Ball | Tienda Oficial</title>
+  <style>
+    /* Estilo General */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(120deg, #f3f4f7, #ffffff);
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(90deg, #ff6b35, #ff5722);
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+    }
+    header p {
+      margin: 10px 0 0;
+      font-size: 1.2rem;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .product {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .product img {
+      max-width: 300px;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .product-details {
+      flex: 1;
+    }
+    .product-details h2 {
+      font-size: 2rem;
+      color: #ff5722;
+      margin-bottom: 10px;
+    }
+    .price {
+      font-size: 1.5rem;
+      color: #27ae60;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+    .quantity-section {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 20px 0;
+      font-size: 1.1rem;
+    }
+    .quantity-section button {
+      padding: 5px 10px;
+      font-size: 1rem;
+      background-color: #ff5722;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .quantity-section button:hover {
+      background-color: #e64a19;
+    }
+    .quantity-section input {
+      width: 50px;
+      text-align: center;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 5px;
+    }
+    .total-price {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #27ae60;
+    }
+    .paypal-button {
+      margin-top: 20px;
+    }
+    .paypal-button img {
+      width: 200px;
+      height: auto;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Cartas Exclusivas de Dragon Ball</h1>
+    <p>¡Las mejores cartas para fanáticos y coleccionistas!</p>
+  </header>
+  <main class="container">
+    <div class="product">
+      <img src="Logo.png" alt="Paquete de Cartas Dragon Ball">
+      <div class="product-details">
+        <h2>Paquete de Cartas Dragon Ball</h2>
+        <p>¡Descubre el poder de tus personajes favoritos con este increíble paquete de cartas! Diseños únicos, ideales para coleccionar o regalar.</p>
+        <p class="price">Precio Unitario: $0.99 USD</p>
+        <div class="quantity-section">
+          <label for="quantity">Cantidad:</label>
+          <button id="decrease" type="button">-</button>
+          <input id="quantity" type="number" value="1" min="1" readonly>
+          <button id="increase" type="button">+</button>
+          <p class="total-price">Precio Total: <span id="total-price">$0.99 USD</span></p>
+        </div>
+        <div class="paypal-button">
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+            <input type="hidden" name="cmd" value="_xclick">
+            <input type="hidden" name="business" value="trotoliso@gmail.com">
+            <input type="hidden" name="item_name" value="Paquete de Cartas Dragon Ball">
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="hidden" name="amount" id="paypal-amount" value="0.99">
+            <button type="submit" aria-label="Pagar con PayPal" style="border: none; background: none; padding: 0; cursor: pointer;">
+              <img src="https://www.paypalobjects.com/webstatic/mktg/merchant_portal/button/buynow.es.png" alt="Pagar con PayPal">
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    © 2025 Tienda Dragon Ball
+  </footer>
+  <script>
+    const unitPrice = 0.99;
+    const quantityInput = document.getElementById('quantity');
+    const totalPriceElement = document.getElementById('total-price');
+    const decreaseButton = document.getElementById('decrease');
+    const increaseButton = document.getElementById('increase');
+    const paypalAmount = document.getElementById('paypal-amount');
+
+    decreaseButton.addEventListener('click', () => {
+      let quantity = parseInt(quantityInput.value);
+      if (quantity > 1) {
+        quantity--;
+        updatePrice(quantity);
+      }
+    });
+
+    increaseButton.addEventListener('click', () => {
+      let quantity = parseInt(quantityInput.value);
+      quantity++;
+      updatePrice(quantity);
+    });
+
+    function updatePrice(quantity) {
+      quantityInput.value = quantity;
+      const totalPrice = (unitPrice * quantity).toFixed(2);
+      totalPriceElement.textContent = `$${totalPrice} USD`;
+      paypalAmount.value = totalPrice;
+    }
+  </script>
+</body>
+</html>

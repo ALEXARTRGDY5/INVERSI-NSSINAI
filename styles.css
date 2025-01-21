@@ -1,0 +1,207 @@
+/* ========================== */
+/* CONFIGURACIÓN GENERAL      */
+/* ========================== */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #fff;
+    background: #000; /* Fondo negro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .container {
+    text-align: center;
+    animation: fade-in 1.5s ease-in-out;
+  }
+  
+  /* ========================== */
+  /* ENCABEZADO                 */
+  /* ========================== */
+  
+  .title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff7300, #00ffd5, #7a00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-text 6s infinite;
+    margin-bottom: 0.8em;
+  }
+  
+  .subtitle {
+    font-size: 1.5rem;
+    color: #bbb;
+    margin-bottom: 3rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  
+  /* ========================== */
+  /* BOTÓN                     */
+  /* ========================== */
+  
+  .button-85 {
+    padding: 1em 3em;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    background: #111;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 12px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    transition: transform 0.2s ease-in-out, background 0.3s;
+  }
+  
+  .button-85:hover {
+    background: #222;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 15px rgba(255, 255, 255, 0.2);
+  }
+  
+  .button-85:before {
+    content: "";
+    background: linear-gradient(
+      45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000
+    );
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(10px);
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+    animation: glowing-button-85 20s linear infinite;
+    border-radius: 12px;
+  }
+  
+  .button-85:after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #222;
+    left: 0;
+    top: 0;
+    border-radius: 12px;
+  }
+  
+  /* ========================== */
+  /* GALERÍA DE IMÁGENES       */
+  /* ========================== */
+  
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  .card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .card img:hover {
+    transform: scale(1.1);
+  }
+  
+  /* ========================== */
+  /* PIE DE PÁGINA              */
+  /* ========================== */
+  
+  footer {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .cool-content {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  
+  .social-icons {
+    margin-top: 1rem;
+  }
+  
+  .social-icon {
+    font-size: 1.5rem;
+    color: #fff;
+    margin: 0 10px;
+    transition: color 0.3s;
+  }
+  
+  .social-icon:hover {
+    color: #ff7300;
+  }
+  
+  /* ========================== */
+  /* ANIMACIONES                */
+  /* ========================== */
+  
+  @keyframes glowing-button-85 {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 400% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+  
+  @keyframes gradient-text {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
